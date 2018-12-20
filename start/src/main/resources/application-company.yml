@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.33.42.232:1521:orcl
+    username: vms_xlgc_181129
+    password: hik12345
+    driver-class-name: oracle.jdbc.OracleDriver

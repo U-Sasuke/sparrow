@@ -1,23 +1,29 @@
 package priv.yq.sparrow.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by yaoqing on 2018/11/28.
  */
 @Entity
+@Table(name = "t_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
+
+    @Column(unique = true, nullable = false)
+    private String salt;
 
     private String nickName;
 
@@ -47,6 +53,14 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     public String getNickName() {
         return nickName;
     }
@@ -69,6 +83,7 @@ public class User implements Serializable {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';

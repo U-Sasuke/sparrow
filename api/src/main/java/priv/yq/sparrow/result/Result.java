@@ -18,6 +18,7 @@ public class Result implements Serializable {
     public static Result success() {
         Result result = new Result();
         result.setType(SUCCESS);
+        result.setMsg("success");
         return result;
     }
 

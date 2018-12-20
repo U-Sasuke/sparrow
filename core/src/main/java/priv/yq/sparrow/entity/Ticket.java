@@ -1,7 +1,6 @@
 package priv.yq.sparrow.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,13 +8,16 @@ import java.util.Date;
  * Created by yaoqing on 2018/11/28.
  */
 @Entity
+@Table(name = "t_ticket")
 public class Ticket implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String indexCode;
 
     private String begin;

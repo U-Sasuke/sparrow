@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import priv.yq.sparrow.dto.UserDTO;
 import priv.yq.sparrow.result.Result;
 
 /**
@@ -14,6 +15,9 @@ import priv.yq.sparrow.result.Result;
 public interface UserRest {
 
     @PostMapping(value = "/register")
-    Result register(@RequestBody String dataJson);
+    Result register(@RequestBody UserDTO userDTO);
+
+    @PostMapping(value = "/login")
+    Result login(@RequestBody UserDTO userDTO);
 
 }

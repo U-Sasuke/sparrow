@@ -25,58 +25,38 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Boolean save(Order order) {
-        try {
-            if (order == null) {
-                return false;
-            }
-            orderRepository.save(order);
-            return true;
-        } catch (Exception e) {
-            log.error("OrderServiceImpl save error:{}", e);
+        if (order == null) {
             return false;
         }
+        orderRepository.save(order);
+        return true;
     }
 
     @Override
     public Boolean save(List<Order> orders) {
-        try {
-            if (orders == null || orders.size() == 0) {
-                return false;
-            }
-            orderRepository.saveAll(orders);
-            return true;
-        } catch (Exception e) {
-            log.error("OrderServiceImpl save list error:{}", e);
+        if (orders == null || orders.size() == 0) {
             return false;
         }
+        orderRepository.saveAll(orders);
+        return true;
     }
 
     @Override
     public Boolean delete(Order order) {
-        try {
-            if (order == null) {
-                return false;
-            }
-            orderRepository.delete(order);
-            return true;
-        } catch (Exception e) {
-            log.error("OrderServiceImpl delete error:{}", e);
+        if (order == null) {
             return false;
         }
+        orderRepository.delete(order);
+        return true;
     }
 
     @Override
     public Boolean delete(List<Order> orders) {
-        try {
-            if (orders == null || orders.size() == 0) {
-                return false;
-            }
-            orderRepository.deleteAll(orders);
-            return true;
-        } catch (Exception e) {
-            log.error("OrderServiceImpl delete list error:{}", e);
+        if (orders == null || orders.size() == 0) {
             return false;
         }
+        orderRepository.deleteAll(orders);
+        return true;
     }
 
     @Override

@@ -2,6 +2,8 @@ package priv.yq.sparrow.service;
 
 import priv.yq.sparrow.entity.Ticket;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ public interface TicketService {
      *
      * @param ticket 车票
      */
+    @Transactional
     Boolean save(Ticket ticket);
 
     /**
@@ -21,6 +24,7 @@ public interface TicketService {
      *
      * @param tickets 车票列表
      */
+    @Transactional
     Boolean save(List<Ticket> tickets);
 
     /**
@@ -28,6 +32,7 @@ public interface TicketService {
      *
      * @param ticket 车票
      */
+    @Transactional
     Boolean delete(Ticket ticket);
 
     /**
@@ -35,6 +40,7 @@ public interface TicketService {
      *
      * @param tickets 车票列表
      */
+    @Transactional
     Boolean delete(List<Ticket> tickets);
 
     /**

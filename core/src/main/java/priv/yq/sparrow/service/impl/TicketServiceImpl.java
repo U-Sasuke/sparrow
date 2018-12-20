@@ -24,58 +24,38 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Boolean save(Ticket ticket) {
-        try {
-            if (ticket == null) {
-                return false;
-            }
-            ticketRepository.save(ticket);
-            return true;
-        } catch (Exception e) {
-            log.error("TicketServiceImpl save error:{}", e);
+        if (ticket == null) {
             return false;
         }
+        ticketRepository.save(ticket);
+        return true;
     }
 
     @Override
     public Boolean save(List<Ticket> tickets) {
-        try {
-            if (tickets == null || tickets.size() == 0) {
-                return false;
-            }
-            ticketRepository.saveAll(tickets);
-            return true;
-        } catch (Exception e) {
-            log.error("TicketServiceImpl save list error:{}", e);
+        if (tickets == null || tickets.size() == 0) {
             return false;
         }
+        ticketRepository.saveAll(tickets);
+        return true;
     }
 
     @Override
     public Boolean delete(Ticket ticket) {
-        try {
-            if (ticket == null) {
-                return false;
-            }
-            ticketRepository.delete(ticket);
-            return true;
-        } catch (Exception e) {
-            log.error("TicketServiceImpl delete error:{}", e);
+        if (ticket == null) {
             return false;
         }
+        ticketRepository.delete(ticket);
+        return true;
     }
 
     @Override
     public Boolean delete(List<Ticket> tickets) {
-        try {
-            if (tickets == null || tickets.size() == 0) {
-                return false;
-            }
-            ticketRepository.deleteAll(tickets);
-            return true;
-        } catch (Exception e) {
-            log.error("TicketServiceImpl delete list error:{}", e);
+        if (tickets == null || tickets.size() == 0) {
             return false;
         }
+        ticketRepository.deleteAll(tickets);
+        return true;
     }
 
     @Override

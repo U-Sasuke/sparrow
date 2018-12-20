@@ -1,5 +1,6 @@
 package priv.yq.sparrow.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import priv.yq.sparrow.entity.User;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public interface UserService {
      *
      * @param user 用户
      */
+    @Transactional
     Boolean save(User user);
 
     /**
@@ -21,6 +23,7 @@ public interface UserService {
      *
      * @param users 用户列表
      */
+    @Transactional
     Boolean save(List<User> users);
 
     /**
@@ -28,6 +31,7 @@ public interface UserService {
      *
      * @param user 用户
      */
+    @Transactional
     Boolean delete(User user);
 
     /**
@@ -35,6 +39,7 @@ public interface UserService {
      *
      * @param users 用户列表
      */
+    @Transactional
     Boolean delete(List<User> users);
 
     /**

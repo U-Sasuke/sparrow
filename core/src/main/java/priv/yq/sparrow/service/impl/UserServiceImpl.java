@@ -24,58 +24,38 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean save(User user) {
-        try {
-            if (user == null) {
-                return false;
-            }
-            userRepository.save(user);
-            return true;
-        } catch (Exception e) {
-            log.error("UserServiceImpl save error:{}", e);
+        if (user == null) {
             return false;
         }
+        userRepository.save(user);
+        return true;
     }
 
     @Override
     public Boolean save(List<User> users) {
-        try {
-            if (users == null || users.size() == 0) {
-                return false;
-            }
-            userRepository.saveAll(users);
-            return true;
-        } catch (Exception e) {
-            log.error("UserServiceImpl save list error:{}", e);
+        if (users == null || users.size() == 0) {
             return false;
         }
+        userRepository.saveAll(users);
+        return true;
     }
 
     @Override
     public Boolean delete(User user) {
-        try {
-            if (user == null) {
-                return false;
-            }
-            userRepository.delete(user);
-            return true;
-        } catch (Exception e) {
-            log.error("UserServiceImpl delete error:{}", e);
+        if (user == null) {
             return false;
         }
+        userRepository.delete(user);
+        return true;
     }
 
     @Override
     public Boolean delete(List<User> users) {
-        try {
-            if (users == null || users.size() == 0) {
-                return false;
-            }
-            userRepository.deleteAll(users);
-            return true;
-        } catch (Exception e) {
-            log.error("UserServiceImpl delete list error:{}", e);
+        if (users == null || users.size() == 0) {
             return false;
         }
+        userRepository.deleteAll(users);
+        return true;
     }
 
     @Override

@@ -2,6 +2,8 @@ package priv.yq.sparrow.service;
 
 import priv.yq.sparrow.entity.Order;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ public interface OrderService {
      *
      * @param order 订单
      */
+    @Transactional
     Boolean save(Order order);
 
     /**
@@ -21,6 +24,7 @@ public interface OrderService {
      *
      * @param orders 订单列表
      */
+    @Transactional
     Boolean save(List<Order> orders);
 
     /**
@@ -28,6 +32,7 @@ public interface OrderService {
      *
      * @param order 订单
      */
+    @Transactional
     Boolean delete(Order order);
 
     /**
@@ -35,6 +40,7 @@ public interface OrderService {
      *
      * @param orders 订单列表
      */
+    @Transactional
     Boolean delete(List<Order> orders);
 
     /**

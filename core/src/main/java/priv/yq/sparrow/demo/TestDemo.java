@@ -7,18 +7,64 @@ import java.util.Arrays;
  */
 public class TestDemo {
 
-    private static int[] arr = new int[]{1, 5, 9, 8, 4, 2, 6, 5, 4, 3};
+    private static int[] arr = new int[]{7, 5, 9, 8, 4, 2, 6, 5, 4, 3};
 
     public static void main(String[] args) {
-        charuSort(arr);
+        mergeSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
-    private static void kuaisuSort(int[] arr){
-
+    public static void mergeSort(int[] a, int low, int high) {
+        int mid = (low + high) / 2;
+        if (low < high) {
+            mergeSort(a, low, mid);
+            mergeSort(a, mid + 1, high);
+            int[] temp = new int[high - low + 1];
+            int i = low;
+            int j = mid + 1;
+            int k = 0;
+            while (i <= mid && j <= high) {
+                if (a[i] < a[j]) {
+                    temp[k++] = a[i++];
+                } else {
+                    temp[k++] = a[j++];
+                }
+            }
+            while (i <= mid) {
+                temp[k++] = a[i++];
+            }
+            while (j <= high) {
+                temp[k++] = a[j++];
+            }
+            for (int x = 0; x < temp.length; x++) {
+                a[x + low] = temp[x];
+            }
+        }
     }
 
-    private static void charuSort(int[] arr) {
+    private static void quickSort(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int i = start;
+        int j = end;
+        int key = arr[i];
+        while (i < j) {
+            while (i < j && arr[j] >= key) {
+                j--;
+            }
+            arr[i] = arr[j];
+            while (i < j && arr[i] <= key) {
+                i++;
+            }
+            arr[j] = arr[i];
+        }
+        arr[i] = key;
+        quickSort(arr, start, i - 1);
+        quickSort(arr, i + 1, end);
+    }
+
+    private static void insertSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int temp = arr[i];
             int j;
@@ -29,7 +75,7 @@ public class TestDemo {
         }
     }
 
-    private static void xuanzeSort(int[] arr) {
+    private static void selectSort(int[] arr) {
         int temp = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             int k = i;
@@ -44,7 +90,7 @@ public class TestDemo {
         }
     }
 
-    private static void maopaoSort(int[] arr) {
+    private static void bubbleSort(int[] arr) {
         int temp = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
